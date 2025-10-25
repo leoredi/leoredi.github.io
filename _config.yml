@@ -16,6 +16,7 @@ defaults:
     values:
       layout: "post"
 
+# Project settings for GitHub repositories
 projects:
   sort_by: pushed
   # sort_by options:
@@ -27,30 +28,72 @@ projects:
     projects:
     # - repo-name
 
+# Academic Publications
+# Uncomment and configure with your publications
+# publications:
+#   - title: "Your Paper Title Here"
+#     authors: "Author1, Author2, Author3"
+#     venue: "Conference/Journal Name"
+#     year: 2024
+#     url: https://doi.org/your-doi
+#     doi: 10.1234/example.doi
+#     arxiv: 2401.12345
+#     pdf: /path/to/paper.pdf
+#     abstract: "Brief description of your research paper..."
+
+# Teaching Experience
+# Uncomment and configure with your teaching experience
+# teaching:
+#   - title: "Course Name"
+#     role: "Teaching Assistant / Instructor / Lecturer"
+#     institution: "University Name"
+#     semester: "Fall 2024"
+#     description: "Brief description of the course and your role..."
+#     url: https://course-website.edu
+
+# Social Media Links (Academic & Professional)
+# Uncomment and add your profiles
 # social_media:
+  # Academic platforms
+  # scholar: your_google_scholar_id
+  # orcid: 0000-0000-0000-0000
+  # researchgate: Your_Name
+  # academia: institution.edu/YourName
+  # arxiv: lastname_f_1
+  # semanticscholar: 123456789
+  # dblp: 12/3456
+
+  # Professional platforms
+  # linkedin: your_username
+  # twitter: your_username
+  # github: your_username (auto-detected)
+  # website: https://your-website.com
+
+  # Other platforms
   # behance: your_username
   # dribbble: your_username
   # facebook: your_username
   # hackerrank: your_username
   # instagram: your_username
   # keybase: your_username
-  # linkedin: your_username
   # medium: your_username
   # stackoverflow: your_user_id
   # telegram: your_username
-  # twitter: your_username
   # unsplash: your_username
   # vk: your_username
-  # website: http://your_website_url
   # youtube: your_username
 
+# Research Interests / Topics
+# Configure with your research areas
 topics:
-  - name: CSS
-    web_url: https://github.com/topics/css
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/css/css.png
+  - name: Machine Learning
+    web_url: https://github.com/topics/machine-learning
+    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/machine-learning/machine-learning.png
 
-  - name: Web design
+  - name: Artificial Intelligence
+    web_url: https://github.com/topics/artificial-intelligence
+    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/artificial-intelligence/artificial-intelligence.png
 
-  - name: Sass
-    web_url: https://github.com/topics/sass
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/sass/sass.png
+  - name: Data Science
+    web_url: https://github.com/topics/data-science
+    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/data-science/data-science.png

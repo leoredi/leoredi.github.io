@@ -1,0 +1,43 @@
+{% if site.publications %}
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Publications</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">Research publications and academic papers.</p>
+<div class="mb-6">
+  {% for pub in site.publications %}
+    <div class="publication-card Box mb-3 p-3 {% if site.style == 'dark' %}bg-gray-dark border-gray-light{% else %}bg-white border-gray-light{% endif %}" style="border: 1px solid #e1e4e8; border-radius: 6px; transition: all 0.3s ease;">
+      <h3 class="f4 mb-2 {% if site.style == 'dark' %}text-white{% endif %}">
+        {% if pub.url %}
+          <a href="{{ pub.url }}" {% if site.style == 'dark' %}class="text-white"{% endif %} style="text-decoration: none;">{{ pub.title }}</a>
+        {% else %}
+          {{ pub.title }}
+        {% endif %}
+      </h3>
+      <p class="f5 mb-2 {% if site.style == 'dark' %}text-gray-light{% else %}text-gray{% endif %}">
+        {{ pub.authors }}
+      </p>
+      {% if pub.venue %}
+        <p class="f6 mb-2 {% if site.style == 'dark' %}text-gray{% else %}text-gray-dark{% endif %}" style="font-style: italic;">
+          {{ pub.venue }}{% if pub.year %}, {{ pub.year }}{% endif %}
+        </p>
+      {% endif %}
+      {% if pub.abstract %}
+        <p class="f6 mb-2 {% if site.style == 'dark' %}text-gray-light{% else %}text-gray{% endif %}">
+          {{ pub.abstract }}
+        </p>
+      {% endif %}
+      {% if pub.doi or pub.arxiv or pub.pdf %}
+        <div class="mt-2">
+          {% if pub.doi %}
+            <a href="https://doi.org/{{ pub.doi }}" class="btn btn-sm mr-2 mb-2" style="text-decoration: none;">DOI</a>
+          {% endif %}
+          {% if pub.arxiv %}
+            <a href="https://arxiv.org/abs/{{ pub.arxiv }}" class="btn btn-sm mr-2 mb-2" style="text-decoration: none;">arXiv</a>
+          {% endif %}
+          {% if pub.pdf %}
+            <a href="{{ pub.pdf }}" class="btn btn-sm mr-2 mb-2" style="text-decoration: none;">PDF</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% endif %}

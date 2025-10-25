@@ -1,0 +1,33 @@
+{% if site.teaching %}
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Teaching</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">Courses and teaching experience.</p>
+<div class="mb-6">
+  {% for course in site.teaching %}
+    <div class="teaching-card Box mb-3 p-3 {% if site.style == 'dark' %}bg-gray-dark border-gray-light{% else %}bg-white border-gray-light{% endif %}" style="border: 1px solid #e1e4e8; border-radius: 6px; transition: all 0.3s ease;">
+      <h3 class="f4 mb-2 {% if site.style == 'dark' %}text-white{% endif %}">
+        {{ course.title }}
+      </h3>
+      {% if course.role %}
+        <p class="f5 mb-1 {% if site.style == 'dark' %}text-blue-light{% else %}text-blue{% endif %}" style="font-weight: 600;">
+          {{ course.role }}
+        </p>
+      {% endif %}
+      {% if course.institution %}
+        <p class="f6 mb-2 {% if site.style == 'dark' %}text-gray-light{% else %}text-gray{% endif %}">
+          {{ course.institution }}{% if course.semester %} &bull; {{ course.semester }}{% endif %}
+        </p>
+      {% endif %}
+      {% if course.description %}
+        <p class="f6 {% if site.style == 'dark' %}text-gray-light{% else %}text-gray-dark{% endif %}">
+          {{ course.description }}
+        </p>
+      {% endif %}
+      {% if course.url %}
+        <div class="mt-2">
+          <a href="{{ course.url }}" class="btn btn-sm" style="text-decoration: none;">Course Website</a>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
