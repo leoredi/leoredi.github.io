@@ -42,7 +42,31 @@
     <div class="container-md f4 text-left border rounded-2 bg-white p-3 p-sm-5 mt-6">
       <p class="f5"><a href="/" class="d-flex flex-items-center">{% octicon chevron-left height:16 class:"mr-2 v-align-middle" fill:#0366d6 aria-label:Home %}Home</a></p>
       <h1 class="f00-light lh-condensed">{{ page.title }}</h1>
-      <p class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %} mb-5">Published {{ page.date | date: "%b %d, %Y"}}</p>
+      <div class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %} mb-4">
+        {% if page.authors %}
+          <p class="f5 mb-2"><strong>Authors:</strong> {{ page.authors }}</p>
+        {% endif %}
+        <p class="f6">Published {{ page.date | date: "%b %d, %Y"}}</p>
+        {% if page.updated %}
+          <p class="f6">Updated {{ page.updated | date: "%b %d, %Y"}}</p>
+        {% endif %}
+      </div>
+      {% if page.abstract %}
+        <div class="Box p-3 mb-4" style="background-color: #f6f8fa; border-left: 4px solid #0366d6;">
+          <p class="f5 mb-1"><strong>Abstract</strong></p>
+          <p class="f6 mb-0">{{ page.abstract }}</p>
+        </div>
+      {% endif %}
+      {% if page.keywords %}
+        <div class="mb-4">
+          <p class="f6 mb-2"><strong>Keywords:</strong></p>
+          <div class="d-flex flex-wrap">
+            {% for keyword in page.keywords %}
+              <span class="Label Label--secondary mr-2 mb-2">{{ keyword }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
       {{ post_body }}
     </div>
   </div>
@@ -58,7 +82,31 @@
           <div class="f4 {% if site.style == 'dark' %}text-white{% endif %}">
             <p class="f5"><a href="{{ site.url }}{{ site.baseurl | append:'/' }}" class="d-flex flex-items-center {% if site.style == 'dark' %}text-white{% endif %}">{% octicon chevron-left height:16 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Home %}Home</a></p>
             <h1 class="f00-light lh-condensed">{{ page.title }}</h1>
-            <p class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %} mb-5">Published {{ page.date | date: "%b %d, %Y"}}</p>
+            <div class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %} mb-4">
+              {% if page.authors %}
+                <p class="f5 mb-2"><strong>Authors:</strong> {{ page.authors }}</p>
+              {% endif %}
+              <p class="f6">Published {{ page.date | date: "%b %d, %Y"}}</p>
+              {% if page.updated %}
+                <p class="f6">Updated {{ page.updated | date: "%b %d, %Y"}}</p>
+              {% endif %}
+            </div>
+            {% if page.abstract %}
+              <div class="Box p-3 mb-4" style="background-color: #f6f8fa; border-left: 4px solid #0366d6;">
+                <p class="f5 mb-1"><strong>Abstract</strong></p>
+                <p class="f6 mb-0">{{ page.abstract }}</p>
+              </div>
+            {% endif %}
+            {% if page.keywords %}
+              <div class="mb-4">
+                <p class="f6 mb-2"><strong>Keywords:</strong></p>
+                <div class="d-flex flex-wrap">
+                  {% for keyword in page.keywords %}
+                    <span class="Label Label--secondary mr-2 mb-2">{{ keyword }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
             {{ post_body }}
           </div>
         </div>

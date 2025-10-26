@@ -19,15 +19,109 @@
 {% endif %}
 
 <!doctype html>
-<html class="min-height-full">
+<html class="min-height-full" lang="en">
   <head>
     <meta charset="utf-8">
     <title>{{ page_title }}</title>
     <meta name="description" content="{{ meta_description }}" />
-    <meta property="og:title" content="{{ user.name }}" />
-    <meta property="og:image" content="{{ user.avatar_url }}" />
-    <meta property="og:description" content="{{ meta_description }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% if page.path contains '_posts' %}article{% else %}website{% endif %}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:title" content="{{ page_title }}" />
+    <meta property="og:description" content="{{ meta_description }}" />
+    <meta property="og:image" content="{{ user.avatar_url }}" />
+    <meta property="og:site_name" content="{{ user.name }}" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="{{ page.url | absolute_url }}" />
+    <meta name="twitter:title" content="{{ page_title }}" />
+    <meta name="twitter:description" content="{{ meta_description }}" />
+    <meta name="twitter:image" content="{{ user.avatar_url }}" />
+    {% if site.social_media.twitter %}
+      <meta name="twitter:creator" content="@{{ site.social_media.twitter }}" />
+    {% endif %}
+
+    <!-- Academic metadata -->
+    {% if page.path contains '_posts' %}
+      {% if page.authors %}
+        <meta name="citation_author" content="{{ page.authors }}" />
+      {% else %}
+        <meta name="citation_author" content="{{ user.name }}" />
+      {% endif %}
+      <meta name="citation_title" content="{{ page.title }}" />
+      <meta name="citation_publication_date" content="{{ page.date | date: "%Y/%m/%d" }}" />
+      {% if page.doi %}
+        <meta name="citation_doi" content="{{ page.doi }}" />
+      {% endif %}
+      {% if page.keywords %}
+        {% for keyword in page.keywords %}
+          <meta name="citation_keywords" content="{{ keyword }}" />
+        {% endfor %}
+      {% endif %}
+      <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+      {% if page.updated %}
+        <meta property="article:modified_time" content="{{ page.updated | date_to_xmlschema }}" />
+      {% endif %}
+    {% endif %}
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{% if page.path contains '_posts' %}ScholarlyArticle{% else %}Person{% endif %}",
+      {% if page.path contains '_posts' %}
+        "headline": "{{ page.title | escape }}",
+        "datePublished": "{{ page.date | date_to_xmlschema }}",
+        {% if page.updated %}
+          "dateModified": "{{ page.updated | date_to_xmlschema }}",
+        {% endif %}
+        {% if page.authors %}
+          "author": {
+            "@type": "Person",
+            "name": "{{ page.authors | escape }}"
+          },
+        {% else %}
+          "author": {
+            "@type": "Person",
+            "name": "{{ user.name | escape }}",
+            "url": "{{ site.url }}"
+          },
+        {% endif %}
+        {% if page.abstract %}
+          "abstract": "{{ page.abstract | escape }}",
+        {% endif %}
+        "description": "{{ meta_description }}",
+        "url": "{{ page.url | absolute_url }}"
+      {% else %}
+        "name": "{{ user.name | escape }}",
+        "url": "{{ site.url }}",
+        "image": "{{ user.avatar_url }}",
+        "description": "{{ user.bio | escape }}",
+        "sameAs": [
+          "https://github.com/{{ user.login }}"
+          {% if site.social_media.scholar %},
+          "https://scholar.google.com/citations?user={{ site.social_media.scholar }}"
+          {% endif %}
+          {% if site.social_media.orcid %},
+          "https://orcid.org/{{ site.social_media.orcid }}"
+          {% endif %}
+          {% if site.social_media.linkedin %},
+          "https://www.linkedin.com/in/{{ site.social_media.linkedin }}"
+          {% endif %}
+          {% if site.social_media.twitter %},
+          "https://twitter.com/{{ site.social_media.twitter }}"
+          {% endif %}
+        ]
+      {% endif %}
+    }
+    </script>
+
     <link href="{{ "/assets/styles.css" | relative_url }}" rel="stylesheet" type="text/css">
   </head>
   <body class="bg-white min-height-full" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %}>

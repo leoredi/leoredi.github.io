@@ -12,6 +12,18 @@
       {% include projects.html %}
     </div>
 
+    {% if site.publications %}
+      <div class="my-6">
+        {% include publications.html %}
+      </div>
+    {% endif %}
+
+    {% if site.teaching %}
+      <div class="my-6">
+        {% include teaching.html %}
+      </div>
+    {% endif %}
+
     {% if site.topics %}
       <div class="my-6">
         {% include interests.html %}
@@ -39,6 +51,14 @@
         {% endunless %}
 
         {% include projects.html %}
+
+        {% if site.publications %}
+          {% include publications.html %}
+        {% endif %}
+
+        {% if site.teaching %}
+          {% include teaching.html %}
+        {% endif %}
 
         {% if site.topics %}
           {% include interests.html %}

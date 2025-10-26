@@ -1,22 +1,67 @@
 ---
 ---
 @import url('https://unpkg.com/primer/build/build.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
 @import 'highlight-syntax';
 
+// CSS Custom Properties for theming
+:root {
+  --primary-color: #0366d6;
+  --primary-dark: #044289;
+  --accent-color: #6f42c1;
+  --text-primary: #24292e;
+  --text-secondary: #586069;
+  --text-tertiary: #6a737d;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-tertiary: #fafbfc;
+  --border-color: #e1e4e8;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  --shadow-hover: 0 12px 20px rgba(0,0,0,0.12), 0 6px 10px rgba(0,0,0,0.08);
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+// Enhanced typography
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+  letter-spacing: -0.011em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
 
 // If a user adds a custom font, this component will stop it from bleeding into GitHub components:
 .github-component {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol !important;
+  font-family: var(--font-sans) !important;
 }
 
 .repo-language-color {
-    filter: brightness(125%) !important;
-    border-radius: 50%;
-    display: inline-block;
-    height: 12px;
-    position: relative;
-    top: 2px;
-    width: 12px;
+  filter: brightness(125%) !important;
+  border-radius: 50%;
+  display: inline-block;
+  height: 12px;
+  position: relative;
+  top: 2px;
+  width: 12px;
 }
 
 .emoji {
@@ -25,30 +70,368 @@
   vertical-align: middle;
 }
 
+// Enhanced article styling for academic content
 .article {
-  h1, h2, h3, h4,
-  .highlight {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-primary);
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-sans);
+    margin-top: 32px;
     margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 2.25em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  h4 {
+    font-size: 1.25em;
+  }
+
+  p {
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+
+  .highlight {
+    margin-bottom: 24px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
   }
 
   blockquote {
-    color: #6a737d;
-    border-left: 2px solid #959da5;
-    padding-left: 16px;
-    margin-bottom: 16px;
+    color: var(--text-secondary);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 20px;
+    margin: 24px 0;
+    font-style: italic;
+    background: var(--bg-secondary);
+    padding: 16px 20px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--bg-secondary);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre code {
+    background: transparent;
+    padding: 0;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-fast);
+
+    &:hover {
+      border-bottom-color: var(--primary-color);
+    }
   }
 
   ul, ol {
-    padding-left: 32px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    padding-left: 28px;
+
+    li {
+      margin-bottom: 8px;
+    }
   }
 
-  li ul, li ol {
-    padding-left: 16px;
-    margin-bottom: 0px;
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: var(--shadow-md);
+    margin: 24px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    box-shadow: var(--shadow-sm);
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      background: var(--bg-secondary);
+      font-weight: 600;
+      font-family: var(--font-sans);
+    }
+
+    tr:hover {
+      background: var(--bg-tertiary);
+    }
   }
 }
 
+// Enhanced card animations
+.repo-card,
+.publication-card,
+.teaching-card,
+.post-card,
+.topic-card {
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+// Improved project/repository cards
+.repo-card {
+  border-radius: 8px !important;
+  overflow: hidden;
+
+  h3 a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--primary-dark);
+    }
+  }
+}
+
+// Publication cards with academic styling
+.publication-card {
+  border-radius: 8px !important;
+  border-left: 4px solid var(--primary-color) !important;
+
+  h3 {
+    font-size: 1.1em;
+    line-height: 1.4;
+    margin-bottom: 8px;
+
+    a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .btn {
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+}
+
+// Teaching cards
+.teaching-card {
+  border-radius: 8px !important;
+  border-left: 4px solid var(--accent-color) !important;
+
+  h3 {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+  }
+}
+
+// Profile section enhancements
+img.circle {
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+  border: 4px solid var(--bg-primary);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Link styling improvements
+a {
+  transition: all var(--transition-fast);
+}
+
+// Button enhancements
+.btn {
+  transition: all var(--transition-fast);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+// Fade-in animation
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-slow) ease-out;
+}
+
+// Stagger animation for lists
+.d-sm-flex > div,
+.mb-6 > div {
+  animation: fadeIn var(--transition-slow) ease-out;
+  animation-fill-mode: both;
+}
+
+.d-sm-flex > div:nth-child(1) { animation-delay: 0ms; }
+.d-sm-flex > div:nth-child(2) { animation-delay: 75ms; }
+.d-sm-flex > div:nth-child(3) { animation-delay: 150ms; }
+.d-sm-flex > div:nth-child(4) { animation-delay: 225ms; }
+.d-sm-flex > div:nth-child(5) { animation-delay: 300ms; }
+.d-sm-flex > div:nth-child(6) { animation-delay: 375ms; }
+.d-sm-flex > div:nth-child(7) { animation-delay: 450ms; }
+.d-sm-flex > div:nth-child(8) { animation-delay: 525ms; }
+.d-sm-flex > div:nth-child(9) { animation-delay: 600ms; }
+
 .min-height-full {
   min-height: 100vh;
+}
+
+// Improved section headers
+h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 24px !important;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+  }
+}
+
+// Enhanced metadata icons
+.octicon {
+  transition: all var(--transition-fast);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// Social media icons enhancement
+.tooltipped {
+  opacity: 0.7;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
+  svg {
+    transition: all var(--transition-fast);
+  }
+
+  &:hover svg {
+    filter: brightness(1.2);
+  }
+}
+
+// Dark mode enhancements
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #e1e4e8;
+    --text-secondary: #8b949e;
+    --text-tertiary: #6a737d;
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #1f2428;
+    --border-color: #30363d;
+  }
+}
+
+// Print styles for academic papers
+@media print {
+  body {
+    font-family: var(--font-serif);
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .repo-card,
+  .publication-card,
+  .teaching-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}
+
+// Responsive typography
+@media (max-width: 768px) {
+  .article {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  h1 {
+    font-size: 1.75em !important;
+  }
+
+  h2 {
+    font-size: 1.5em !important;
+  }
 }

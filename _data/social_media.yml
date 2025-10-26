@@ -82,3 +82,38 @@ youtube:
   name: YouTube
   profile_url_prefix: https://www.youtube.com/
   icon_svg: '<svg height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.17 13.6"><path d="M18.77 2.13A2.4 2.4 0 0 0 17.09.42C15.59 0 9.58 0 9.58 0a57.55 57.55 0 0 0-7.5.4A2.49 2.49 0 0 0 .39 2.13 26.27 26.27 0 0 0 0 6.8a26.15 26.15 0 0 0 .39 4.67 2.43 2.43 0 0 0 1.69 1.71c1.52.42 7.5.42 7.5.42a57.69 57.69 0 0 0 7.51-.4 2.4 2.4 0 0 0 1.68-1.71 25.63 25.63 0 0 0 .4-4.67 24 24 0 0 0-.4-4.69zM7.67 9.71V3.89l5 2.91z" fill="#959da5"/></svg>'
+
+scholar:
+  name: Google Scholar
+  profile_url_prefix: https://scholar.google.com/citations?user=
+  icon_svg: '<svg height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L0 8.5V10.5L12 6L24 10.5V8.5L12 0Z" fill="#959da5"/><path d="M12 8L0 13.5V15.5L12 11L24 15.5V13.5L12 8Z" fill="#959da5"/><path d="M12 16L4 19.5V21.5L12 18L20 21.5V19.5L12 16Z" fill="#959da5"/></svg>'
+
+orcid:
+  name: ORCID
+  profile_url_prefix: https://orcid.org/
+  icon_svg: '<svg height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="#959da5" stroke-width="2" fill="none"/><circle cx="8" cy="8" r="1.5" fill="#959da5"/><rect x="7" y="10" width="2" height="8" rx="0.5" fill="#959da5"/><rect x="11" y="10" width="6" height="1.5" rx="0.5" fill="#959da5"/><rect x="11" y="13" width="5" height="1.5" rx="0.5" fill="#959da5"/><rect x="11" y="16" width="4" height="1.5" rx="0.5" fill="#959da5"/></svg>'
+
+researchgate:
+  name: ResearchGate
+  profile_url_prefix: https://www.researchgate.net/profile/
+  icon_svg: '<svg height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z" fill="#959da5"/><path d="M8 8h3v1H8V8zm0 2h4v1H8v-1zm0 2h4v1H8v-1zm5-4h3v6h-3V8z" fill="#959da5"/></svg>'
+
+academia:
+  name: Academia.edu
+  profile_url_prefix: https://
+  icon_svg: '<svg height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 8v8l9 6 9-6V8l-9-6zm0 2.5L18.5 8.5v6L12 18.5l-6.5-4v-6L12 4.5z" fill="#959da5"/><path d="M12 7l-3 2v4l3 2 3-2V9l-3-2z" fill="#959da5"/></svg>'
+
+arxiv:
+  name: arXiv
+  profile_url_prefix: https://arxiv.org/a/
+  icon_svg: '<svg height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5z" fill="#959da5"/><path d="M8 8h8v1H8V8zm0 3h8v1H8v-1zm0 3h6v1H8v-1z" fill="#959da5"/></svg>'
+
+semanticscholar:
+  name: Semantic Scholar
+  profile_url_prefix: https://www.semanticscholar.org/author/
+  icon_svg: '<svg height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="#959da5" stroke-width="2" fill="none"/><path d="M8 9l4 3 4-3M8 15l4-3 4 3" stroke="#959da5" stroke-width="1.5" fill="none"/></svg>'
+
+dblp:
+  name: dblp
+  profile_url_prefix: https://dblp.org/pid/
+  icon_svg: '<svg height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#959da5" stroke-width="2" fill="none"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#959da5" stroke-width="1.5" stroke-linecap="round"/></svg>'
